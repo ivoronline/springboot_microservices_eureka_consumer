@@ -13,15 +13,15 @@ public class MyController {
 
   @Autowired RestTemplate restTemplate;
 
-  @RequestMapping("Hello")
-  String hello() throws URISyntaxException {
+  @RequestMapping("Consumer")
+  String consumer() throws URISyntaxException {
 
     //CALL MICROSERVICE
-    String result = restTemplate.getForObject(new URI("http://hello-service/Hello"), String.class);
+    String result = restTemplate.getForObject(new URI("http://provider-service/Provider"), String.class);
 
     //RETURN SOMETHING
     return result;
-    
+
   }
 
 }
